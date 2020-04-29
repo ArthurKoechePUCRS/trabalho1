@@ -2,74 +2,105 @@
 #include <sstream>
 #include "Produto.hpp"
 
-Produto::Produto (string cB,string d,int gOU,string m,double q,double p){
 
-    Produto temp;
+//TAREFA=
+//
+//      Fazer o toCSV,fromCSV,operator==,operator<
+//
 
-    temp.codBarras = cB;
-    temp.descricao = d;
-    temp.granelOuUnicade = gOU;
-    temp.medida = m;
-    temp.quantidade = q;
-    temp.preco = p
 
-        return temp;
+Produto::Produto(){};
 
-}
+
+Produto::Produto (string cB=0,string d=0,int gOU=0,string m=0,double q=0,double p=0){
+
+        
+        codBarras = cB;
+        descricao = d;
+        granelOuUnidade = gOU;
+        medida = m;
+        quantidade = q;
+        preco = p;
+
+      
+};
 string Produto::obtemCodBarras(){
 
        return codBarras;
-}
+};
 
 void Produto::defineCodBarras(string codBarras){
 
         this->codBarras=codBarras;
-}
+};
 
 string Produto::obtemDescricao(){
 
-        return descicao;
+        return descricao;
     
-}
+};
 
-void defineDescricao( string descricao){
+void Produto::defineDescricao( string descricao){
 
         this->descricao=descricao;
         
-} 
-int obtemGranalOuUnidade(){
+} ;
+int Produto::obtemGranalOuUnidade(){
 
-        return granalOuUnidade;
-}
-void defineGranelOuUnidade(int granelOuUnidade){
+        return granelOuUnidade;
+
+};
+void Produto::defineGranelOuUnidade(int granelOuUnidade){
 
         this->granelOuUnidade = granelOuUnidade;
 
-}
-string obtemMedida(){
+};
+string Produto::obtemMedida(){
 
         return medida;
         
-}
-void defineQuantidade(double quantidade){
+};
+void Produto::defineMedida(string medida){
+
+        this->medida = medida;
+
+};
+double Produto::obtemQuantidade(){
+
+        return quantidade;
+
+};
+void Produto::defineQuantidade(double quantidade){
 
         this->quantidade = quantidade;
         
-}
-double obtemPreco (){
+};
+double Produto::obtemPreco (){
 
         return preco;
-}
-void definePreco (double preco){
+};
+void Produto::definePreco (double preco){
 
         this->preco = preco;
 
-}
-string toString(){
+};
+string Produto::toString(){
 
-        
+        stringstream buffer;
+        string temp;
 
-        
+        buffer << obtemCodBarras() << ";" ;
+        buffer << obtemDescricao() << ";" ;
+        buffer << obtemGranalOuUnidade() << ";" ;
+        buffer << obtemMedida() << ";" ;
+        buffer << obtemQuantidade() << ";" ;
+        buffer << obtemPreco() << ";" << endl;
 
+        temp = buffer.str();
 
-}
+        cout << endl << "Saida:   " << temp << endl;
+};
+//string toCSV(){}
+//bool fromCSV(string linhaCSV){}
+//bool operator==(produto Produto&){}
+//bool operator<(produto Produto&){}
