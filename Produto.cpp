@@ -5,7 +5,7 @@
 
 //TAREFA=
 //
-//      Fazer o toCSV,fromCSV,operator==,operator<
+//      Fazer o operator==,operator<
 //
 
 
@@ -100,7 +100,37 @@ string Produto::toString(){
 
         cout << endl << "Saida:   " << temp << endl;
 };
-//string toCSV(){}
-//bool fromCSV(string linhaCSV){}
+string Produto::toCSV(){
+        stringstream buffer;
+        string temp;
+
+        buffer << obtemCodBarras() << ";" ;
+        buffer << obtemDescricao() << ";" ;
+        buffer << obtemGranalOuUnidade() << ";" ;
+        buffer << obtemMedida() << ";" ;
+        buffer << obtemQuantidade() << ";" ;
+        buffer << obtemPreco() << ";" << endl;
+
+        temp = buffer.str();
+        
+        cout << temp; //temp ta transformado em CSV
+}
+int Produto::fromCSV(string linhaCSV){
+
+int contador=0;
+for (int x=0;x<100;x++){
+
+        if (linhaCSV[x]==';') contador++;
+        
+        if (contador == 5) { break;}
+
+              
+        }
+
+if (contador == 5) return 1;
+else return 0;
+
+};
 //bool operator==(produto Produto&){}
 //bool operator<(produto Produto&){}
+
